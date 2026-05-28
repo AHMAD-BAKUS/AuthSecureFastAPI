@@ -1,0 +1,33 @@
+# Environnement virtuel
+venv/
+env/
+.venv/
+
+# Base de données locale
+*.db
+*.sqlite
+
+# Variables d'environnement (ne jamais commit !)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+
+taches.txt

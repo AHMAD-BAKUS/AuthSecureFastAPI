@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block titre %}Nouveau mot de passe — AuthSecure{% endblock %}
+
+{% block contenu %}
+<div class="carte">
+
+  <div class="logo">
+    <div class="logo-icone">🔐</div>
+    <span class="logo-texte">AuthSecure</span>
+    <span class="logo-badge">FLUX 03</span>
+  </div>
+
+  <h1 class="titre-page">Nouveau mot de passe</h1>
+  <p class="sous-titre">Choisissez un mot de passe fort. Ce lien sera invalidé après utilisation.</p>
+
+  {% if erreur %}
+  <div class="alerte alerte-erreur">
+    <span class="alerte-icone">⚠</span>
+    <span>{{ erreur }}</span>
+  </div>
+  {% endif %}
+
+  <form method="post" action="/auth/nouveau-mot-de-passe">
+    <!-- Token transmis en champ caché -->
+    <input type="hidden" name="token" value="{{ token }}" />
+
+    <div class="champ">
+      <label for="mot_de_passe">Nouveau mot de passe</label>
+      <input type="password" id="mot_de_passe" name="mot_de_passe"
+             placeholder="Minimum 8 caractères" required autocomplete="new-password" />
+      <div class="regles-mdp">
+        <span class="regle">8 caractères min.</span>
+        <span class="regle">1 majuscule</span>
+        <span class="regle">1 chiffre</span>
+        <span class="regle">1 caractère spécial</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-principal">Enregistrer le nouveau mot de passe →</button>
+  </form>
+
+  <p class="lien-page">
+    <a href="/auth/connexion">← Retour à la connexion</a>
+  </p>
+
+</div>
+{% endblock %}

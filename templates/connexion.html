@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block titre %}Connexion — AuthSecure{% endblock %}
+
+{% block contenu %}
+<div class="carte">
+
+  <div class="logo">
+    <div class="logo-icone">🔐</div>
+    <span class="logo-texte">AuthSecure</span>
+    <span class="logo-badge">FLUX 02</span>
+  </div>
+
+  <h1 class="titre-page">Connexion</h1>
+  <p class="sous-titre">Entrez vos identifiants pour accéder à votre espace.</p>
+
+  {% if erreur %}
+  <div class="alerte alerte-erreur">
+    <span class="alerte-icone">⚠</span>
+    <span>{{ erreur }}</span>
+  </div>
+  {% endif %}
+
+  {% if succes %}
+  <div class="alerte alerte-succes">
+    <span class="alerte-icone">✓</span>
+    <span>{{ succes }}</span>
+  </div>
+  {% endif %}
+
+  <form method="post" action="/auth/connexion" id="form-connexion">
+
+    <div class="champ">
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" name="email" placeholder="vous@exemple.com"
+             value="{{ email or '' }}" required autocomplete="email" />
+    </div>
+
+    <div class="champ">
+      <label for="mot_de_passe">Mot de passe</label>
+      <input type="password" id="mot_de_passe" name="mot_de_passe"
+             placeholder="Votre mot de passe" required autocomplete="current-password" />
+      <a href="/auth/demande-reset" class="lien-oublie">Mot de passe oublié ?</a>
+    </div>
+
+    <button type="submit" class="btn-principal" id="btn-connexion">
+      Se connecter →
+    </button>
+  </form>
+
+  <hr class="sep" />
+
+  <p class="lien-page" style="margin-top:0">
+    Pas encore de compte ? <a href="/auth/inscription">S'inscrire gratuitement</a>
+  </p>
+
+</div>
+
+<script>
+  // Désactiver le bouton après soumission pour éviter les doubles clics
+  document.getElementById('form-connexion').addEventListener('submit', function() {
+    const btn = document.getElementById('btn-connexion');
+    btn.textContent = 'Connexion en cours…';
+    btn.disabled = true;
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block titre %}Tableau de bord — AuthSecure{% endblock %}
+
+{% block contenu %}
+<div class="carte tableau" style="max-width:560px">
+
+  <div class="logo">
+    <div class="logo-icone">🔐</div>
+    <span class="logo-texte">AuthSecure</span>
+    <span class="logo-badge">FLUX 04</span>
+  </div>
+
+  <h1 class="titre-page">Tableau de bord</h1>
+  <p class="sous-titre">Bienvenue ! Vous êtes connecté à votre espace sécurisé.</p>
+
+  <!-- Carte profil -->
+  <div class="profil-carte">
+    <div class="avatar">{{ utilisateur.nom[0].upper() }}</div>
+    <div class="profil-info">
+      <div class="nom">{{ utilisateur.nom }}</div>
+      <div class="email-u">{{ utilisateur.email }}</div>
+    </div>
+    <span class="badge-statut badge-verifie">✓ Vérifié</span>
+  </div>
+
+  <!-- Statistiques de session -->
+  <div class="stats-grille">
+    <div class="stat-carte">
+      <div class="stat-label">Statut du compte</div>
+      <div class="stat-val vert">Actif</div>
+    </div>
+    <div class="stat-carte">
+      <div class="stat-label">Tentatives échouées</div>
+      <div class="stat-val violet">{{ utilisateur.tentatives_echec }}</div>
+    </div>
+    <div class="stat-carte">
+      <div class="stat-label">Email vérifié</div>
+      <div class="stat-val vert">Oui</div>
+    </div>
+    <div class="stat-carte">
+      <div class="stat-label">Compte créé le</div>
+      <div class="stat-val" style="font-size:1rem; color:var(--texte-2)">
+        {{ utilisateur.cree_le.strftime('%d/%m/%Y') if utilisateur.cree_le else '—' }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions-barre">
+    <a href="/auth/demande-reset"
+       style="text-decoration:none">
+      <button class="btn-secondaire">Changer le mot de passe</button>
+    </a>
+
+    <!-- Déconnexion via formulaire POST (FLUX 04) -->
+    <form method="post" action="/auth/deconnexion" style="display:inline">
+      <button type="submit" class="btn-principal"
+              style="width:auto; padding:.75rem 1.5rem; margin-top:0">
+        Se déconnecter
+      </button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

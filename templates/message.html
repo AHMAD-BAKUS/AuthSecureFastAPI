@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titre %}{{ titre }} — AuthSecure{% endblock %}
+
+{% block contenu %}
+<div class="carte" style="text-align:center">
+
+  <div class="logo" style="justify-content:center">
+    <div class="logo-icone">🔐</div>
+    <span class="logo-texte">AuthSecure</span>
+  </div>
+
+  <div class="message-icone {{ type or 'succes' }}" style="margin: 0 auto 1.25rem">
+    {% if type == 'erreur' %}✕{% else %}✓{% endif %}
+  </div>
+
+  <h1 class="titre-page" style="text-align:center">{{ titre }}</h1>
+  <p class="sous-titre" style="text-align:center">{{ message }}</p>
+
+  {% if lien %}
+  <a href="{{ lien }}" class="btn-principal"
+     style="display:inline-block; text-decoration:none; margin-top:.5rem; padding:.75rem 2rem; width:auto">
+    {{ texte_lien or 'Continuer' }} →
+  </a>
+  {% endif %}
+
+  <p class="lien-page">
+    <a href="/auth/connexion">← Retour à la connexion</a>
+  </p>
+
+</div>
+{% endblock %}
