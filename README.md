@@ -1,5 +1,15 @@
 # 🔐 AuthSecure — TP Flux d'Authentification (FastAPI)
 
+## Équipe
+
+| # | Nom | Rôle |
+|---|-----|------|
+| 1 | AHMAD | Backend & Sécurité |
+| 2 | Membre 2 | Routes & Logique métier |
+| 3 | Membre 3 | Frontend & Déploiement | 
+
+---
+
 Application web d'authentification complète développée avec **FastAPI**, couvrant les 4 flux du TP :
 
 | Flux | Description |
@@ -72,7 +82,7 @@ pip install -r requirements.txt
 ### 4. Lancer l'application
 
 ```bash
-uvicorn main:app --reload
+python main.py
 ```
 
 Puis ouvrir : **http://127.0.0.1:8000**
