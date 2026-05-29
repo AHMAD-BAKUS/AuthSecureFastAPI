@@ -6,7 +6,7 @@
 |---|-----|------|
 | 1 | AHMAD | Backend & Sécurité |
 | 2 | Membre 2 | Routes & Logique métier |
-| 3 | Membre 3 | Frontend & Déploiement | 
+| 3 | Jean Chris Dénis | Frontend & Déploiement | 
 
 ---
 
