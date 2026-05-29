@@ -5,7 +5,7 @@
 | # | Nom | Rôle |
 |---|-----|------|
 | 1 | AHMAD | Backend & Sécurité |
-| 2 | Membre 2 | Routes & Logique métier |
+| 2 | Roxane | Routes & Logique métier |
 | 3 | Membre 3 | Frontend & Déploiement | 
 
 ---
